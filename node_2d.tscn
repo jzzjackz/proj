@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://di201olat1kvn"]
+[gd_scene load_steps=2 format=3 uid="uid://r3stomgvsy3k"]
+
+[ext_resource type="Texture2D" uid="uid://oh30ihwa7uoy" path="res://ralseigamer.jpg" id="1_wtcfe"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(551, 143)
+scale = Vector2(0.103303, 0.103303)
+texture = ExtResource("1_wtcfe")
