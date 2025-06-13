@@ -1,12 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://r3stomgvsy3k"]
+[gd_scene load_steps=7 format=3 uid="uid://r3stomgvsy3k"]
 
-[ext_resource type="Script" uid="uid://bnlpblwkijbav" path="res://main.gd" id="1_0e48y"]
+[ext_resource type="Script" path="res://main.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://oh30ihwa7uoy" path="res://ralseigamer.jpg" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://hglw4d5kyqaw" path="res://character_body_2d.gd" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://c5wjmuqgevoo" path="res://trashahhsprite.png" id="4_0hol4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(68, 103.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+size = Vector2(1878.95, 733.492)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_0e48y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(551, 143)
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_epypp")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(175.625, 275.652)
 scale = Vector2(0.103303, 0.103303)
 texture = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(175.625, 275.901)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(174, 277)
+position_smoothing_enabled = true
+
+[node name="platforrm" type="StaticBody2D" parent="."]
+position = Vector2(99, 32)
+
+[node name="platform" type="Sprite2D" parent="platforrm"]
+position = Vector2(202, 434)
+scale = Vector2(0.0995239, 0.0995239)
+texture = ExtResource("4_0hol4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforrm"]
+position = Vector2(201, 436)
+scale = Vector2(0.0995239, 0.0995239)
+shape = SubResource("RectangleShape2D_q6r6c")
