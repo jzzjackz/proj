@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://r3stomgvsy3k"]
+[gd_scene load_steps=11 format=3 uid="uid://r3stomgvsy3k"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://bnlpblwkijbav" path="res://main.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://oh30ihwa7uoy" path="res://ralseigamer.jpg" id="1_wtcfe"]
-[ext_resource type="Script" uid="uid://hglw4d5kyqaw" path="res://character_body_2d.gd" id="2_epypp"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://tunrvyck4vp8" path="res://day.jpg" id="2_kdubu"]
+[ext_resource type="Texture2D" uid="uid://o86xla373wmw" path="res://night.jpg" id="3_d21ai"]
 [ext_resource type="Texture2D" uid="uid://c5wjmuqgevoo" path="res://trashahhsprite.png" id="4_0hol4"]
+[ext_resource type="AudioStream" uid="uid://cos7vsoybvefu" path="res://morning.mp3" id="7_d21ai"]
+[ext_resource type="AudioStream" uid="uid://x10uf3retpn1" path="res://mixkit-summer-night-crickets-loop-1789.wav" id="8_rj586"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(68, 103.5)
@@ -13,6 +17,17 @@ size = Vector2(1878.95, 733.492)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_0e48y")
+
+[node name="Day" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(190, 279)
+texture = ExtResource("2_kdubu")
+
+[node name="Night" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(183, 276)
+scale = Vector2(3.95238, 3.95238)
+texture = ExtResource("3_d21ai")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("2_epypp")
@@ -24,7 +39,6 @@ texture = ExtResource("1_wtcfe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(175.625, 275.901)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
@@ -43,3 +57,28 @@ texture = ExtResource("4_0hol4")
 position = Vector2(201, 436)
 scale = Vector2(0.0995239, 0.0995239)
 shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="ITSDAY" type="Label" parent="."]
+visible = false
+offset_left = 97.0
+offset_top = 195.0
+offset_right = 289.0
+offset_bottom = 270.0
+theme_override_font_sizes/font_size = 40
+text = "ITS DAY"
+
+[node name="night" type="Label" parent="."]
+visible = false
+offset_left = 97.0
+offset_top = 195.0
+offset_right = 289.0
+offset_bottom = 270.0
+theme_override_colors/font_color = Color(0.905269, 3.34509e-06, 1.15514e-06, 1)
+theme_override_font_sizes/font_size = 40
+text = "ITS NIGHT."
+
+[node name="Morning" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_d21ai")
+
+[node name="Mixkit-summer-night-crickets-loop-1789" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_rj586")
